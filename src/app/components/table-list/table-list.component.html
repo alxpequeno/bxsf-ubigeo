@@ -1,0 +1,61 @@
+<h2>REGIONS</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Name</th>
+      <th scope="col">Parent Code</th>
+      <th scope="col">Parent Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of regions">
+      <th scope="row">{{item.code}}</th>
+      <td>{{item.name}}</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>PROVINCES</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Name</th>
+      <th scope="col">Parent Code</th>
+      <th scope="col">Parent Name</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of regions">
+
+    <tr *ngFor="let p of item.provinces">
+      <th scope="row">{{p.code}}</th>
+      <td>{{p.name}}</td>
+      <td>{{item.code}}</td>
+      <td>{{item.name}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>DISTRICTS</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Name</th>
+      <th scope="col">Parent Code</th>
+      <th scope="col">Parent Name</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let province of provinces">
+    <tr *ngFor="let d of province.districts">
+      <th scope="row">{{d.code}}</th>
+      <td>{{d.name}}</td>
+      <td>{{province.code}}</td>
+      <td>{{province.name}}</td>
+    </tr>
+  </tbody>
+</table>
